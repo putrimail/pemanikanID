@@ -59,8 +59,10 @@ function LangPages() {
               </span>
             </li>
           ))
+        ) : searchTerm.length === 0 ? (
+          <li className="p-3 text-gray-500">Masukkan kata</li>
         ) : (
-          <li className="p-3 text-gray-500">Tidak ada hasil</li>
+          <li className="p-3 text-gray-500">Tidak ada di kamus</li>
         )}
       </ul>
     </div>
