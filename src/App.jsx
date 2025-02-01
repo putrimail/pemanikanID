@@ -14,6 +14,7 @@ import ButtonSideBarComp from "./components/ButtonSideBarComp";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
+  const [showButtonSida, setShowButtonSida] = useState(false);
 
   const allowPath = [
     "/",
@@ -33,10 +34,21 @@ function App() {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (
+      allowPath.includes(location.pathname) &&
+      location.pathname !== "/bahasa-sasak"
+    ) {
+      setShowButtonSida(true);
+    } else {
+      setShowButtonSida(false);
+    }
+  }, [location.pathname]);
+
   return (
     <>
       {showNavbar && <NavbarComp />}
-      <ButtonSideBarComp />
+      {showButtonSida && <ButtonSideBarComp />}
       <Routes>
         <Route path="/" element={<HomePages />} />
         <Route path="/bahasa-sasak" element={<LangPages />} />
