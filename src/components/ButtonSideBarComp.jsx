@@ -16,7 +16,7 @@ function ButtonSideBarComp() {
   }, [mulai]);
   return (
     <div className="flex items-center justify-end  ">
-      <div className="fixed bottom-50 bg-gray-500 py-10 px-3 m-3  rounded-4xl ">
+      <div className="fixed bottom-10 bg-gray-500 py-10 px-3 m-3 opacity-65 rounded-4xl ">
         <div
           onClick={() => setMulai(!mulai)}
           className=" cursor-pointer rounded-full  text-white bg-amber-600   text-sm hover:bg-gray-400   md:px-4.5 md:py-3.5 md:text-lg"
