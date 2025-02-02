@@ -1,11 +1,12 @@
 import { useState } from "react";
 import dictionaryData from "../../Data";
+import { Link } from "react-router-dom";
 
 function LangPages() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [language, setLanguage] = useState("sasak-to-indonesia");
-
+  console.log(language);
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     const results = dictionaryData.filter((entry) => {
@@ -47,11 +48,11 @@ function LangPages() {
               key={index}
               className="p-3 border-b last:border-none flex justify-between"
             >
-              <span className="font-semibold">
+              {/* <span className="font-semibold">
                 {language === "sasak-to-indonesia"
                   ? entry.sasak
                   : entry.indonesia}
-              </span>
+              </span> */}
               <span>
                 {language === "sasak-to-indonesia"
                   ? entry.indonesia
@@ -65,6 +66,16 @@ function LangPages() {
           <li className="p-3 text-gray-500">Tidak ada di kamus</li>
         )}
       </ul>
+      <p className="pt-5">
+        Menambah kosakata dan revisi,
+        <Link
+          to="https://docs.google.com/forms/d/e/1FAIpQLSdG1KUdfk95wO7maka3Yh1NtPu1KWjFo0qKNDzWU3On7_nK5g/viewform?usp=header"
+          className="underline text-blue-500 cursor-pointer mx-2 font-semibold"
+          target="blank"
+        >
+          Klick
+        </Link>
+      </p>
     </div>
   );
 }
